@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Contact Us</h2>
+    <form action="save_message.php" method="POST" onsubmit="return validateForm()">
+      <label>Name:</label>
+      <input type="text" name="name" id="name">
+
+      <label>Email:</label>
+      <input type="text" name="email" id="email">
+
+      <label>Message:</label>
+      <textarea name="message" id="message"></textarea>
+
+      <input type="submit" value="Send Message">
+    </form>
+  </div>
+
+  <script>
+    function validateForm() {
+      let name = document.getElementById('name').value;
+      let email = document.getElementById('email').value;
+      let message = document.getElementById('message').value;
+
+      if (name == "" || email == "" || message == "") {
+        alert("Please fill in all fields!");
+        return false;
+      }
+      if (!email.includes("@")) {
+        alert("Please enter a valid email address!");
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
